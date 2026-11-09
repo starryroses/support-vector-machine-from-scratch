@@ -49,8 +49,8 @@ def hinge_loss_example(score, y):
 import numpy as np
 def svm_objective(x, y, params, reg_lambda):
     scores = compute_scores(x,params)
-    mean_hinge = np.mean([hinge_loss_example(score,y) for score,y in zip(scores,y)])
-    reg = (reg_lambda/2)*(np.dot(params["w"],params["w"]))
+    mean_hinge = np.mean(hinge_loss_example(scores,y))
+    reg = (reg_lambda)*(np.dot(params["w"],params["w"]))
     return mean_hinge + reg
 
 # Step 7 - compute_gradients (not yet solved)
